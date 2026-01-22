@@ -57,10 +57,58 @@
       document.getElementById("kerdes5").innerHTML =
         "A válaszod: " + kulonvalaszok[i].split("=")[1];
 
-      i++;
-      let szin = kulonvalaszok[i].split("=")[1];
-      szin = decodeURIComponent(szin);
-      document.getElementById("body").style.backgroundColor = szin;
-      document.getElementById("kerdes6").innerHTML =
-        "A háttér színe megváltozott erre: " + szin;
-    }
+// 6. Kérdés (Taj Mahal - Radio)
+  i++;
+  let tajmahal = kulonvalaszok[i].split("=")[1];
+  if (tajmahal === "B") {
+    document.getElementById("kerdes6").innerHTML = 
+      "<span style='color: green;'>Helyes! (India)</span>";
+  } else {
+    document.getElementById("kerdes6").innerHTML = 
+      "<span style='color: red;'>Helytelen!</span>";
+  }
+
+  // 7. Kérdés (Emlős - Text)
+  i++;
+  let emlos = decodeURIComponent(kulonvalaszok[i].split("=")[1]).toLowerCase();
+  if (emlos.includes("elefánt") || emlos.includes("elefant")) {
+    document.getElementById("kerdes7").innerHTML = 
+      "<span style='color: green;'>Helyes!</span>";
+  } else {
+    document.getElementById("kerdes7").innerHTML = 
+      "<span style='color: red;'>Helytelen!</span>";
+  }
+
+  // 8. Kérdés (Bolygók - Number)
+  i++;
+  let bolygok = kulonvalaszok[i].split("=")[1];
+  if (bolygok === "8") {
+    document.getElementById("kerdes8").innerHTML = 
+      "<span style='color: green;'>Helyes!</span>";
+  } else {
+    document.getElementById("kerdes8").innerHTML = 
+      "<span style='color: red;'>Helytelen! (8)</span>";
+  }
+
+  // 9. Kérdés (Everest - Select)
+  i++;
+  let hegy = decodeURIComponent(kulonvalaszok[i].split("=")[1]);
+  if (hegy === "Mount+Everest" || hegy === "Mount Everest") {
+    document.getElementById("kerdes9").innerHTML = 
+      "<span style='color: green;'>Helyes!</span>";
+  } else {
+    document.getElementById("kerdes9").innerHTML = 
+      "<span style='color: red;'>Helytelen!</span>";
+  }
+
+  // 10. Kérdés (Ausztrália - Radio)
+  i++;
+  let ausztralia = kulonvalaszok[i].split("=")[1];
+  if (ausztralia === "igaz") {
+    document.getElementById("kerdes10").innerHTML = 
+      "<span style='color: green;'>Helyes!</span>";
+  } else {
+    document.getElementById("kerdes10").innerHTML = 
+      "<span style='color: red;'>Helytelen!</span>";
+  }
+}

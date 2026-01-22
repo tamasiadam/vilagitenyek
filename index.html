@@ -29,10 +29,9 @@
         <label for="q1-3">C) Jáva-árok</label><br />
         <input type="radio" name="melyseg" id="q1-4" value="q1-4" />
         <label for="q1-4">D) Tonga-árok</label><br />
-        <div id="kerdes1"></div>
+        <div id="kerdes1" class="status-msg"></div>
       </div>
 
-      <h2>1. Az alábbiak közül mely országok határosak Magyarországgal?</h2>
       <div class="kerdes">
         <h2>2. Az alábbiak közül mely országok határosak Magyarországgal?</h2>
         <input type="checkbox" name="hatar" id="q2-1" value="q2-1" />
@@ -81,14 +80,55 @@
       </div>
 
 
-      <h2>Milyen színű a háttered?</h2>
-      <input type="color" name="szin" id="szin" /><br /><br />
-      <div id="kerdes6"></div>
 
-      <h2>A véleményed számít! Kérlek oszd meg velünk!</h2>
-      <input type="text" name="velemeny" id="velemeny" /> <br /><br />
+      <div class="kerdes">
+        <h2>6. Melyik országban található a Taj Mahal?</h2>
+        <div class="options-list">
+          <label><input type="radio" name="tajmahal" value="A" /> A) Nepál</label>
+          <label><input type="radio" name="tajmahal" value="B" /> B) India</label>
+          <label><input type="radio" name="tajmahal" value="C" /> C) Pakisztán</label>
+          <label><input type="radio" name="tajmahal" value="D" /> D) Banglades</label>
+        </div>
+        <div id="kerdes6" class="status-msg"></div>
+      </div>
+      
+      <div class="kerdes">
+        <h2>7. Mi a Föld legnagyobb szárazföldi emlősének neve?</h2>
+        <input type="text" name="emlos" class="flat-input" placeholder="Írd ide a teljes nevet..." />
+        <div id="kerdes7" class="status-msg"></div>
+      </div>
+      
+      <div class="kerdes">
+        <h2>8. Hány bolygó található a Naprendszerben?</h2>
+        <input type="number" name="bolygok" class="flat-input" placeholder="Csak egy számot írj!" />
+        <div id="kerdes8" class="status-msg"></div>
+      </div>
+      
+      <div class="kerdes">
+        <h2>9. Egészítsd ki: A világ legmagasabb hegycsúcsa a...</h2>
+        <select name="everest" class="flat-input">
+          <option value="">Válassz egyet!</option>
+          <option value="K2">K2</option>
+          <option value="Mount Everest">Mount Everest</option>
+          <option value="Kilimandzsáró">Kilimandzsáró</option>
+        </select>
+        <div id="kerdes9" class="status-msg"></div>
+      </div>
+      
+      <div class="kerdes">
+        <h2>10. Igaz vagy hamis: Ausztrália egyszerre ország és kontinens is.</h2>
+        <div class="options-list">
+          <label><input type="radio" name="ausztralia" value="igaz" /> Igaz</label>
+          <label><input type="radio" name="ausztralia" value="hamis" /> Hamis</label>
+        </div>
+        <div id="kerdes10" class="status-msg"></div>
+      </div>
 
-      <input type="submit" value="Beküldés" />
+            <h2>A véleményed számít! Kérlek oszd meg velünk!</h2>
+            <input type="text" name="velemeny" id="velemeny" /> <br /><br />
+            
+            <input type="submit" value="Beküldés" />
+
     </form>
   </section>
 
