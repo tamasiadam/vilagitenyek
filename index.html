@@ -18,6 +18,7 @@
       <h1>Tudáspróba</h1>
 
       <form class="quiz" action="index.html" method="get">
+        <div class="kerdes">
         <h2>1. Melyik a Föld legmélyebb pontja az óceánokban?</h2>
         <input type="radio" name="melyseg" id="q1-1" value="q1-1" />
         <label for="q1-1">A) Puerto-Rico-i árok</label><br />
@@ -28,8 +29,10 @@
         <input type="radio" name="melyseg" id="q1-4" value="q1-4" />
         <label for="q1-4">D) Tonga-árok</label><br />
         <div id="kerdes1"></div>
+        </div>
 
-        <h2>1. Az alábbiak közül mely országok határosak Magyarországgal?</h2>
+        <div class="kerdes">
+        <h2>2. Az alábbiak közül mely országok határosak Magyarországgal?</h2>
         <input type="checkbox" name="hatar" id="q2-1" value="q2-1" />
         <label for="q2-1">A) Szlovákia</label><br />
         <input type="checkbox" name="hatar" id="q2-2" value="q2-2" />
@@ -39,11 +42,15 @@
         <input type="checkbox" name="hatar" id="q2-4" value="q2-4" />
         <label for="q2-4">D) Ukrajna</label><br />
         <div id="kerdes2"></div>
-
+        </div>
+        
+        <div class="kerdes">
         <h2>3. Hogy hívják Japán fővárosát?</h2>
         <input type="text" name="fovaros" id="fovaros" /><br /><br />
         <div id="kerdes3"></div>
+        </div>
 
+        <div class="kerdes">
         <h2>4. A Föld hány %-át borítja víz?</h2>
         <input
           type="range"
@@ -53,7 +60,10 @@
           max="100"
         /><br /><br />
         <div id="kerdes4"></div>
+        </div>
 
+
+        <div class="kerdes">
         <h2>5. Egészítsd ki az állítást a megfelelő opciókkal</h2>
         <p>A(z)</p>
         <select name="folyo1" id="folyo1">
@@ -71,7 +81,9 @@
         </select>
         <p>kontinensen található.</p>
         <div id="kerdes5"></div>
+        </div>
 
+        
         <h2>Milyen színű a háttered?</h2>
         <input type="color" name="szin" id="szin" /><br /><br />
         <div id="kerdes6"></div>
