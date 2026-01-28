@@ -3,90 +3,73 @@ if (url.includes("?")) {
   let valaszok = url.split("?")[1];
   let kulonvalaszok = valaszok.split("&");
 
+  // név alapján keresi a megoldást nem csak index alapján
+  function getErtek(nev) {
+    let par = kulonvalaszok.find((p) => p.startsWith(nev + "="));
+    return par ? par.split("=")[1] : "";
+  }
+
   // 1. kérdés
-  if (kulonvalaszok[0].split("=")[1] == "q1-2") {
+  if (getErtek("melyseg") === "q1-2") {
     document.getElementById("kerdes1").innerHTML =
-      "<span style='color: green;'>Helyes válasz!</span>";
+      "<span style='color: green;'>Helyes!</span>";
   } else {
     document.getElementById("kerdes1").innerHTML =
-      "<span style='color: red;'>Helytelen válasz!</span>";
+      "<span style='color: red;'>Helytelen!</span>";
   }
 
-  let i = 1;
+  // 2. kérdés (Checkboxok kezelése)
   let jok = 0;
-  let osszes = 0;
+  let aktivalt = kulonvalaszok
+    .filter((p) => p.startsWith("hatar="))
+    .map((p) => p.split("=")[1]);
+  if (aktivalt.includes("q2-1")) jok++;
+  if (aktivalt.includes("q2-3")) jok++;
+  if (aktivalt.includes("q2-4")) jok++;
 
-  // 2. kérdés
-  while (
-    i < kulonvalaszok.length &&
-    kulonvalaszok[i].startsWith("hatar")
-  ) {
-    osszes++;
-    let ertek = kulonvalaszok[i].split("=")[1];
-
-    if (ertek === "q2-1" || ertek === "q2-3" || ertek === "q2-4") {
-      jok++;
-    }
-    i++;
-  }
-
-  if (jok === 3 && osszes === 3) {
+  if (jok === 3 && aktivalt.length === 3) {
     document.getElementById("kerdes2").innerHTML =
-      "<span style='color: green;'>Helyes válasz!</span>";
+      "<span style='color: green;'>Helyes!</span>";
   } else {
     document.getElementById("kerdes2").innerHTML =
-      "<span style='color: red;'>Helytelen válasz!</span>";
+      "<span style='color: red;'>Helytelen!</span>";
   }
 
-  // 3. kérdés
-  let fovaros = kulonvalaszok[i].split("=")[1];
-  if (
-    decodeURIComponent(fovaros).toLowerCase() === "tokyo" ||
-    decodeURIComponent(fovaros).toLowerCase() === "tokió"
-  ) {
+  // 3. kérdés (Text)
+  let fovaros = decodeURIComponent(getErtek("fovaros")).toLowerCase();
+  if (fovaros === "tokyo" || fovaros === "tokió") {
     document.getElementById("kerdes3").innerHTML =
-      "<span style='color: green;'>Helyes válasz!</span>";
+      "<span style='color: green;'>Helyes!</span>";
   } else {
     document.getElementById("kerdes3").innerHTML =
-      "<span style='color: red;'>Helytelen válasz!</span>";
+      "<span style='color: red;'>Helytelen!</span>";
   }
 
-  // 4. kérdés
-  i++;
+  // 4. kérdés (Range)
+  let viz = getErtek("fold-viz");
   document.getElementById("kerdes4").innerHTML =
-    "A Föld <strong>71%</strong>-át borítja víz. A te válaszod: <strong>" +
-    kulonvalaszok[i].split("=")[1] +
-    "%</strong>";
+    `A te válaszod: <strong>${viz}%</strong> (Helyes: 71%)`;
 
-  // 5. kérdés
-  i++;
-  let f1 = kulonvalaszok[i].split("=")[1];
-  i++;
-  let f2 = kulonvalaszok[i].split("=")[1];
-  if (f1 === "nilus" && f2 === "afrika") {
-    document.getElementById("kerdes5").innerHTML = "<span style='color: green;'>Helyes!</span>";
+  // 5. kérdés (Selects)
+  if (getErtek("folyo1") === "nilus" && getErtek("folyo2") === "afrika") {
+    document.getElementById("kerdes5").innerHTML =
+      "<span style='color: green;'>Helyes!</span>";
   } else {
-    document.getElementById("kerdes5").innerHTML = "<span style='color: red;'>Helytelen!</span>";
+    document.getElementById("kerdes5").innerHTML =
+      "<span style='color: red;'>Helytelen!</span>";
   }
-
-  // Szín és vélemény átugrása
-  i++;
-  i++;
 
   // 6. kérdés
-  i++;
-  let tajmahal = kulonvalaszok[i].split("=")[1];
-  if (tajmahal === "B") {
+  if (getErtek("tajmahal") === "B") {
     document.getElementById("kerdes6").innerHTML =
-      "<span style='color: green;'>Helyes! (India)</span>";
+      "<span style='color: green;'>Helyes!</span>";
   } else {
     document.getElementById("kerdes6").innerHTML =
       "<span style='color: red;'>Helytelen!</span>";
   }
 
   // 7. kérdés
-  i++;
-  let emlos = decodeURIComponent(kulonvalaszok[i].split("=")[1]).toLowerCase();
+  let emlos = decodeURIComponent(getErtek("emlos")).toLowerCase();
   if (emlos.includes("elefánt") || emlos.includes("elefant")) {
     document.getElementById("kerdes7").innerHTML =
       "<span style='color: green;'>Helyes!</span>";
@@ -96,20 +79,17 @@ if (url.includes("?")) {
   }
 
   // 8. kérdés
-  i++;
-  let bolygok = kulonvalaszok[i].split("=")[1];
-  if (bolygok === "8") {
+  if (getErtek("bolygok") === "8") {
     document.getElementById("kerdes8").innerHTML =
       "<span style='color: green;'>Helyes!</span>";
   } else {
     document.getElementById("kerdes8").innerHTML =
-      "<span style='color: red;'>Helytelen! (8)</span>";
+      "<span style='color: red;'>Helytelen!</span>";
   }
 
   // 9. kérdés
-  i++;
-  let hegy = decodeURIComponent(kulonvalaszok[i].split("=")[1]);
-  if (hegy === "Mount+Everest" || hegy === "Mount Everest") {
+  let hegy = decodeURIComponent(getErtek("everest")).replace(/\+/g, " ");
+  if (hegy === "Mount Everest") {
     document.getElementById("kerdes9").innerHTML =
       "<span style='color: green;'>Helyes!</span>";
   } else {
@@ -118,9 +98,7 @@ if (url.includes("?")) {
   }
 
   // 10. kérdés
-  i++;
-  let ausztralia = kulonvalaszok[i].split("=")[1];
-  if (ausztralia === "igaz") {
+  if (getErtek("ausztralia") === "igaz") {
     document.getElementById("kerdes10").innerHTML =
       "<span style='color: green;'>Helyes!</span>";
   } else {

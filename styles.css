@@ -1,38 +1,56 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: rgb(163, 203, 255);
+  font-family: "Segoe UI", Verdana, sans-serif;
+  background-color: rgb(0, 5, 29);
   color: #333;
+  line-height: 1.6;
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding-top: 25px;
+  text-decoration: underline;
+}
+
+section {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.301), rgba(0, 0, 0, 0.6)),
+    url(https://images6.alphacoders.com/389/thumb-1920-389262.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50px;
 }
 
 header {
-  background-color: #3b3b3b;
+  background-color: #1a1a1a;
   color: white;
-  padding: 10px 0;
-  height: 50px;
+  padding: 0 20px;
+  height: 60px;
   display: flex;
   align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 header p {
-  text-align: left;
-  padding: 2em;
   margin: 0;
+  margin-right: auto;
   font-size: 1.5em;
   font-weight: bold;
 }
 
 header a {
-  font-size: 1.5em;
-  margin-left: 20px;
-  padding: 0.3em;
+  font-size: 1.1em;
+  padding: 15px;
+  margin-left: 5px;
   color: white;
   text-decoration: none;
 }
 
 header a:hover {
-  transition: 0.2s;
-  background-color: rgb(0, 0, 0);
+  transition: 200ms;
+  background-color: rgba(0, 0, 0, 0.411);
 }
 
 section {
@@ -40,34 +58,87 @@ section {
   margin: 20px;
 }
 
-#velemeny {
-  width: 600px;
-  height: 200px;
-  font-size: 1.2em;
-  padding: 10px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  resize: vertical;
-  text-align: left;
-}
-
+/* kvíz doboz */
 .quiz {
-  margin-top: 5em;
-  margin-left: 3em;
-  margin-right: 3em;
-  padding: 3em;
+  max-width: 800px; /* ne legyen széles */
+  margin: 40px auto;
+  padding: 40px;
   text-align: left;
   background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
+/* kérdések doboza */
 .kerdes {
-  background-color: #9292927c;
-  padding: 5em;
+  background-color: #f4f4f4;
+  padding: 20px;
+  margin-bottom: 20px;
   border-radius: 8px;
+  border-left: 5px solid #3b3b3b;
+}
+
+.kerdes h2 {
+  margin-top: 0;
+  font-size: 1.2em;
+}
+
+/* vélemény box */
+#velemeny {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box; /* padding nem növeli a méretét */
+  height: 100px;
+  font-size: 1em;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical; /* csak függőlegesen méretezhető */
+  font-family: inherit;
+}
+
+/* input mezők és selectek szépítése */
+input[type="text"],
+input[type="number"],
+select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 5px;
+  font-size: 1em;
+}
+
+/* submit */
+input[type="submit"] {
+  background-color: #3b3b3b;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+  margin: 20px auto 0;
+}
+
+input[type="submit"]:hover {
+  background-color: #555;
+}
+
+/* opciók listája (radio/checkbox) */
+.options-list label {
+  display: block;
+  margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .status-msg {
- margin-top: 0.8rem;
- font-weight: 700;
- font-size: 0.9rem;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 10px;
+  background-color: white;
+  border-radius: 4px;
+  display: inline-block;
 }
